@@ -8,6 +8,12 @@ export class CreateUserInput {
     @Field(() => String, { description: 'User email' })
     email: string;
 
+    @Field(() => String, { description: 'User phone' })
+    phone: string;
+
+    @Field(() => String, { description: 'User country' })
+    country: string;
+
     @Field(() => String, { description: 'User account password' })
     password_account: string;
 

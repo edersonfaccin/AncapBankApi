@@ -11,6 +11,12 @@ type User {
   """User email"""
   email: String!
 
+  """User phone"""
+  phone: String!
+
+  """User country"""
+  country: String!
+
   """User account password"""
   password_account: String!
 
@@ -55,6 +61,12 @@ input CreateUserInput {
   """User email"""
   email: String!
 
+  """User phone"""
+  phone: String!
+
+  """User country"""
+  country: String!
+
   """User account password"""
   password_account: String!
 
@@ -71,6 +83,12 @@ input UpdateUserInput {
 
   """User email"""
   email: String
+
+  """User phone"""
+  phone: String
+
+  """User country"""
+  country: String
 
   """User account password"""
   password_account: String

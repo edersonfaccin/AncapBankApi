@@ -20,6 +20,14 @@ export class User {
     email: string;
 
     @Prop({ required: true, default: '' })
+    @Field(() => String, { description: 'User phone' })
+    phone: string;
+
+    @Prop({ required: true, default: '' })
+    @Field(() => String, { description: 'User country' })
+    country: string;
+
+    @Prop({ required: true, default: '' })
     @Field(() => String, { description: 'User account password' })
     password_account: string;
 

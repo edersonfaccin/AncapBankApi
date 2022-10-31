@@ -2,9 +2,11 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AccountModule } from './account/account.module';
 import { AppController } from './app.controller';
 import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
+import { CoinModule } from './coin/coin.module';
 import { UserModule } from './user/user.module';
 
 require('dotenv').config()
@@ -16,7 +18,9 @@ require('dotenv').config()
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql'
     }),
-    UserModule
+    UserModule,
+    AccountModule,
+    CoinModule
   ],
   controllers: [
     AppController
