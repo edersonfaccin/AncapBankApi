@@ -2,6 +2,49 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Account {
+  _id: String!
+
+  """Account user id"""
+  iduser: String!
+
+  """Account nick"""
+  nick: String!
+
+  """Account agency"""
+  agency: Float!
+
+  """Account number"""
+  account_number: Float!
+
+  """Account active"""
+  active: Boolean!
+
+  """Account date register"""
+  date_register: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Coin {
+  _id: String!
+
+  """Coin name"""
+  name: String!
+
+  """Coin initials"""
+  initials: String!
+
+  """Coin active"""
+  active: Boolean!
+
+  """Coin date register"""
+  date_register: DateTime!
+}
+
 type User {
   _id: String!
 
@@ -27,16 +70,17 @@ type User {
   date_register: DateTime!
 }
 
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
 type Query {
   getHello: String!
   userspage(listUserInput: ListInput!): [User!]!
   users: [User!]!
   user(_id: String!): User!
+  accountspage(listAccountInput: ListInput!): [Account!]!
+  accounts: [Account!]!
+  account(_id: String!): Account!
+  coinspage(listCoinInput: ListInput!): [Coin!]!
+  coins: [Coin!]!
+  coin(_id: String!): Coin!
 }
 
 input ListInput {
@@ -52,6 +96,12 @@ type Mutation {
   updateUser(data: UpdateUserInput!): User!
   updatePassword(data: UpdateUserInput!): User!
   removeUser(_id: String!): User!
+  createAccount(data: CreateAccountInput!): Account!
+  updateAccount(data: UpdateAccountInput!): Account!
+  removeAccount(_id: String!): Account!
+  createCoin(data: CreateCoinInput!): Coin!
+  updateCoin(data: UpdateCoinInput!): Coin!
+  removeCoin(_id: String!): Coin!
 }
 
 input CreateUserInput {
@@ -97,6 +147,76 @@ input UpdateUserInput {
   birth_date: DateTime
 
   """User date register"""
+  date_register: DateTime
+  _id: String!
+}
+
+input CreateAccountInput {
+  """Account user"""
+  iduser: String!
+
+  """Account nick"""
+  nick: String!
+
+  """Account agency"""
+  agency: Float
+
+  """Account ccount number"""
+  account_number: Float
+
+  """Account active"""
+  active: Boolean
+
+  """Account date register"""
+  date_register: DateTime
+}
+
+input UpdateAccountInput {
+  """Account user"""
+  iduser: String
+
+  """Account nick"""
+  nick: String
+
+  """Account agency"""
+  agency: Float
+
+  """Account ccount number"""
+  account_number: Float
+
+  """Account active"""
+  active: Boolean
+
+  """Account date register"""
+  date_register: DateTime
+  _id: String!
+}
+
+input CreateCoinInput {
+  """Coin name"""
+  name: String!
+
+  """Coin initials"""
+  initials: String!
+
+  """Coin active"""
+  active: Boolean
+
+  """Coin date register"""
+  date_register: DateTime
+}
+
+input UpdateCoinInput {
+  """Coin name"""
+  name: String
+
+  """Coin initials"""
+  initials: String
+
+  """Coin active"""
+  active: Boolean
+
+  """Coin date register"""
   date_register: DateTime
   _id: String!
 }

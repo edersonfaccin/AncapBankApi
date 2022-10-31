@@ -9,13 +9,13 @@ export class CreateAccountInput {
     @Field(() => String, { description: 'Account nick' })
     nick: string;
 
-    @Field(() => Number, { description: 'Account agency' })
+    @Field(() => Number, { description: 'Account agency', nullable: true })
     agency: number;
 
-    @Field(() => Number, { description: 'Account ccount number' })
+    @Field(() => Number, { description: 'Account ccount number', nullable: true })
     account_number: number;
 
-    @Field(() => Boolean, { description: 'Account active' })
+    @Field(() => Boolean, { description: 'Account active', nullable: true })
     active: boolean;
 
     @Field(() => Date, { description: 'Account date register', nullable: true })

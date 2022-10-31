@@ -19,11 +19,11 @@ export class Account {
     @Field(() => String, { description: 'Account nick' })
     nick: string;
 
-    @Prop({ required: true, default: 0 })
+    @Prop({ required: true, default: 1 })
     @Field(() => Number, { description: 'Account agency' })
     agency: number;
 
-    @Prop({ required: true, default: 0 })
+    @Prop({ required: true, default: 0, index: true })
     @Field(() => Number, { description: 'Account number' })
     account_number: number;
 

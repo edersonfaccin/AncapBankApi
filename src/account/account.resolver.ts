@@ -35,11 +35,6 @@ export class AccountResolver {
     }
 
     @Mutation(() => Account)
-    updatePassword(@Args('data') input: UpdateAccountInput) {
-        return this.service.updatePassword(input._id, input);
-    }
-
-    @Mutation(() => Account)
     removeAccount(@Args('_id', { type: () => String }) id: string) {
         return this.service.delete(id);
     }

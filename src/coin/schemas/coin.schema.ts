@@ -12,8 +12,12 @@ export class Coin {
     _id: MongooseSchema.Types.ObjectId;
 
     @Prop({ required: true, default: '' })
-    @Field(() => String, { description: 'Coin nick' })
+    @Field(() => String, { description: 'Coin name' })
     name: string;
+
+    @Prop({ required: true, default: '' })
+    @Field(() => String, { description: 'Coin initials' })
+    initials: string;
 
     @Prop({ required: true, default: true })
     @Field(() => Boolean, { description: 'Coin active' })

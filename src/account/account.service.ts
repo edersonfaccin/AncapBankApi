@@ -25,8 +25,12 @@ export class AccountService {
     }
 
     async create(data: CreateAccountInput) {
-        const createdData = new this.model(data)
+        let newData = data
 
+        let result = await this.model.findOne().sort('-account_number')
+        newData.account_number = (result?.account_number || 0) + 1
+
+        const createdData = new this.model(newData)
         return await createdData.save()
     }
 
