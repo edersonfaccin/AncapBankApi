@@ -1,0 +1,84 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  _id: String!
+
+  """Full name user"""
+  full_name: String!
+
+  """User email"""
+  email: String!
+
+  """User account password"""
+  password_account: String!
+
+  """User birth date"""
+  birth_date: DateTime!
+
+  """User date register"""
+  date_register: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  getHello: String!
+  userspage(listUserInput: ListInput!): [User!]!
+  users: [User!]!
+  user(_id: String!): User!
+}
+
+input ListInput {
+  """Limit pagination"""
+  limit: Float!
+
+  """Offset pagination"""
+  offset: Float!
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): User!
+  updateUser(data: UpdateUserInput!): User!
+  updatePassword(data: UpdateUserInput!): User!
+  removeUser(_id: String!): User!
+}
+
+input CreateUserInput {
+  """User full name"""
+  full_name: String!
+
+  """User email"""
+  email: String!
+
+  """User account password"""
+  password_account: String!
+
+  """User birth date"""
+  birth_date: DateTime
+
+  """User date register"""
+  date_register: DateTime
+}
+
+input UpdateUserInput {
+  """User full name"""
+  full_name: String
+
+  """User email"""
+  email: String
+
+  """User account password"""
+  password_account: String
+
+  """User birth date"""
+  birth_date: DateTime
+
+  """User date register"""
+  date_register: DateTime
+  _id: String!
+}
