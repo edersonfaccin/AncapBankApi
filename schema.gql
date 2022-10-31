@@ -29,6 +29,31 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Card {
+  _id: String!
+
+  """Card user id"""
+  iduser: String!
+
+  """Card account id"""
+  idaccount: String!
+
+  """Card number card"""
+  number_card: String!
+
+  """Card cvv"""
+  cvv: String!
+
+  """Card date expiration"""
+  date_expiration: DateTime!
+
+  """Card active"""
+  active: Boolean!
+
+  """Card date register"""
+  date_register: DateTime!
+}
+
 type Coin {
   _id: String!
 
@@ -81,6 +106,9 @@ type Query {
   coinspage(listCoinInput: ListInput!): [Coin!]!
   coins: [Coin!]!
   coin(_id: String!): Coin!
+  cardspage(listCardInput: ListInput!): [Card!]!
+  cards: [Card!]!
+  card(_id: String!): Card!
 }
 
 input ListInput {
@@ -102,6 +130,9 @@ type Mutation {
   createCoin(data: CreateCoinInput!): Coin!
   updateCoin(data: UpdateCoinInput!): Coin!
   removeCoin(_id: String!): Coin!
+  createCard(data: CreateCardInput!): Card!
+  updateCard(data: UpdateCardInput!): Card!
+  removeCard(_id: String!): Card!
 }
 
 input CreateUserInput {
@@ -217,6 +248,53 @@ input UpdateCoinInput {
   active: Boolean
 
   """Coin date register"""
+  date_register: DateTime
+  _id: String!
+}
+
+input CreateCardInput {
+  """Card user"""
+  iduser: String!
+
+  """Card account"""
+  idaccount: String!
+
+  """Card number"""
+  number_card: String
+
+  """Card cvv"""
+  cvv: String
+
+  """Card date expiration"""
+  date_expiration: DateTime
+
+  """Card active"""
+  active: Boolean
+
+  """Card date register"""
+  date_register: DateTime
+}
+
+input UpdateCardInput {
+  """Card user"""
+  iduser: String
+
+  """Card account"""
+  idaccount: String
+
+  """Card number"""
+  number_card: String
+
+  """Card cvv"""
+  cvv: String
+
+  """Card date expiration"""
+  date_expiration: DateTime
+
+  """Card active"""
+  active: Boolean
+
+  """Card date register"""
   date_register: DateTime
   _id: String!
 }

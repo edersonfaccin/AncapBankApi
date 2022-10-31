@@ -6,6 +6,7 @@ import { AccountModule } from './account/account.module';
 import { AppController } from './app.controller';
 import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
+import { CardModule } from './card/card.module';
 import { CoinModule } from './coin/coin.module';
 import { UserModule } from './user/user.module';
 
@@ -20,7 +21,8 @@ require('dotenv').config()
     }),
     UserModule,
     AccountModule,
-    CoinModule
+    CoinModule,
+    CardModule
   ],
   controllers: [
     AppController
