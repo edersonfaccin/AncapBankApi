@@ -1,4 +1,6 @@
-export enum EAccountStatus {
-    Opened = 'Opened',
-    Closed = 'Closed'
+export enum ETransactionStatus {
+    Pending = 'Pending',
+    InsuficienteBalance = 'InsuficienteBalance',
+    NotAuthorized = 'NotAuthorized',
+    Finished = 'Finished'
 }
