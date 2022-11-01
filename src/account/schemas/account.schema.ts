@@ -15,6 +15,10 @@ export class Account {
     @Field(() => String, { description: 'Account user id' })
     iduser: Types.ObjectId;
 
+    @Prop({ type: SchemaTypes.ObjectId, ref: 'Coin' })
+    @Field(() => String, { description: 'Account coin id' })
+    idcoin: Types.ObjectId;
+
     @Prop({ required: true, default: '' })
     @Field(() => String, { description: 'Account nick' })
     nick: string;
@@ -26,6 +30,10 @@ export class Account {
     @Prop({ required: true, default: 0, index: true })
     @Field(() => Number, { description: 'Account number' })
     account_number: number;
+
+    @Prop({ required: true, default: 0 })
+    @Field(() => Number, { description: 'Account balance' })
+    balance: number;
 
     @Prop({ required: true, default: true })
     @Field(() => Boolean, { description: 'Account active' })
