@@ -6,7 +6,7 @@ export class CreateAccountInput {
     @Field(() => String, { description: 'Account user' })
     iduser: string;
 
-    @Field(() => String, { description: 'Account coin' })
+    @Field(() => String, { description: 'Account coin', nullable: true })
     idcoin: string;
 
     @Field(() => String, { description: 'Account nick' })

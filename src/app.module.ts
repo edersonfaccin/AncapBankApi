@@ -8,7 +8,8 @@ import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
 import { CardModule } from './card/card.module';
 import { CoinModule } from './coin/coin.module';
-import { Transaction } from './transaction/schemas/transaction.schema';
+import { DepositModule } from './deposit/deposit.module';
+import { TransactionModule } from './transaction/transaction.module';
 import { UserModule } from './user/user.module';
 
 require('dotenv').config()
@@ -24,7 +25,8 @@ require('dotenv').config()
     AccountModule,
     CoinModule,
     CardModule,
-    Transaction
+    TransactionModule,
+    DepositModule
   ],
   controllers: [
     AppController

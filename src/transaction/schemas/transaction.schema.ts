@@ -1,7 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as MongooseSchema, SchemaTypes, Types } from 'mongoose';
-import { ETransactionStatus } from 'src/common/utils/Emums';
 
 export type TransactionDocument = Transaction & Document;
 
@@ -19,10 +18,6 @@ export class Transaction {
     @Prop({ type: SchemaTypes.ObjectId, ref: 'Account' })
     @Field(() => String, { description: 'Transaction account target' })
     idaccount_target: Types.ObjectId;
-
-    @Prop({ required: true, default: ETransactionStatus.Pending })
-    @Field(() => ETransactionStatus, { description: 'Transaction status' })
-    status: ETransactionStatus;
 
     @Prop({ required: true, default: Date.now() })
     @Field(() => Date, { description: 'Transaction date register' })

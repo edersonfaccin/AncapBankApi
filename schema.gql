@@ -8,6 +8,9 @@ type Account {
   """Account user id"""
   iduser: String!
 
+  """Account coin id"""
+  idcoin: String!
+
   """Account nick"""
   nick: String!
 
@@ -16,6 +19,9 @@ type Account {
 
   """Account number"""
   account_number: Float!
+
+  """Account balance"""
+  balance: Float!
 
   """Account active"""
   active: Boolean!
@@ -70,6 +76,35 @@ type Coin {
   date_register: DateTime!
 }
 
+type Deposit {
+  _id: String!
+
+  """Deposit account id"""
+  idaccount: String!
+
+  """Deposit coin id"""
+  idcoin: String!
+
+  """Deposit value"""
+  value: Float!
+
+  """Deposit date register"""
+  date_register: DateTime!
+}
+
+type Transaction {
+  _id: String!
+
+  """Transaction account source"""
+  idaccount_source: String!
+
+  """Transaction account target"""
+  idaccount_target: String!
+
+  """Transaction date register"""
+  date_register: DateTime!
+}
+
 type User {
   _id: String!
 
@@ -109,6 +144,12 @@ type Query {
   cardspage(listCardInput: ListInput!): [Card!]!
   cards: [Card!]!
   card(_id: String!): Card!
+  transactionspage(listTransactionInput: ListInput!): [Transaction!]!
+  transactions: [Transaction!]!
+  transaction(_id: String!): Transaction!
+  depositspage(listDepositInput: ListInput!): [Deposit!]!
+  deposits: [Deposit!]!
+  deposit(_id: String!): Deposit!
 }
 
 input ListInput {
@@ -133,6 +174,12 @@ type Mutation {
   createCard(data: CreateCardInput!): Card!
   updateCard(data: UpdateCardInput!): Card!
   removeCard(_id: String!): Card!
+  createTransaction(data: CreateTransactionInput!): Transaction!
+  updateTransaction(data: UpdateTransactionInput!): Transaction!
+  removeTransaction(_id: String!): Transaction!
+  createDeposit(data: CreateDepositInput!): Deposit!
+  updateDeposit(data: UpdateDepositInput!): Deposit!
+  removeDeposit(_id: String!): Deposit!
 }
 
 input CreateUserInput {
@@ -186,14 +233,20 @@ input CreateAccountInput {
   """Account user"""
   iduser: String!
 
+  """Account coin"""
+  idcoin: String
+
   """Account nick"""
   nick: String!
 
   """Account agency"""
   agency: Float
 
-  """Account ccount number"""
+  """Account account number"""
   account_number: Float
+
+  """Account balance"""
+  balance: Float
 
   """Account active"""
   active: Boolean
@@ -206,14 +259,20 @@ input UpdateAccountInput {
   """Account user"""
   iduser: String
 
+  """Account coin"""
+  idcoin: String
+
   """Account nick"""
   nick: String
 
   """Account agency"""
   agency: Float
 
-  """Account ccount number"""
+  """Account account number"""
   account_number: Float
+
+  """Account balance"""
+  balance: Float
 
   """Account active"""
   active: Boolean
@@ -295,6 +354,58 @@ input UpdateCardInput {
   active: Boolean
 
   """Card date register"""
+  date_register: DateTime
+  _id: String!
+}
+
+input CreateTransactionInput {
+  """Transaction source account"""
+  idaccount_source: String!
+
+  """Transaction target account"""
+  idaccount_target: String!
+
+  """Transaction date register"""
+  date_register: DateTime
+}
+
+input UpdateTransactionInput {
+  """Transaction source account"""
+  idaccount_source: String
+
+  """Transaction target account"""
+  idaccount_target: String
+
+  """Transaction date register"""
+  date_register: DateTime
+  _id: String!
+}
+
+input CreateDepositInput {
+  """Deposit account"""
+  idaccount: String!
+
+  """Deposit coin"""
+  idcoin: String!
+
+  """Deposit value"""
+  value: Float!
+
+  """Account date register"""
+  date_register: DateTime
+}
+
+input UpdateDepositInput {
+  """Deposit account"""
+  idaccount: String
+
+  """Deposit coin"""
+  idcoin: String
+
+  """Deposit value"""
+  value: Float
+
+  """Account date register"""
   date_register: DateTime
   _id: String!
 }

@@ -15,7 +15,7 @@ export class Account {
     @Field(() => String, { description: 'Account user id' })
     iduser: Types.ObjectId;
 
-    @Prop({ type: SchemaTypes.ObjectId, ref: 'Coin' })
+    @Prop({ type: SchemaTypes.ObjectId, ref: 'Coin', default: '' })
     @Field(() => String, { description: 'Account coin id' })
     idcoin: Types.ObjectId;
 
